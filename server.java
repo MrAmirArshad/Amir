@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.*;
 
-class TCPServer
+class Server
 {
 	public static void main(String argv[]) throws Exception
 	{
