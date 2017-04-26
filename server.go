@@ -14,9 +14,9 @@ func main() {
   conn, _ := ln.Accept()
 
   for {
-    message, _ := bufio.NewReader(conn).ReadString('\n')
-    fmt.Print("Message Received:", string(message))
-    newmessage := strings.ToUpper(message)
-    conn.Write([]byte(newmessage + "\n"))
+        message, _ := bufio.NewReader(conn).ReadString('\n')
+        fmt.Print("Message Received:", string(message))
+        newmessage := strings.ToUpper(message)
+        conn.Write([]byte(newmessage + "\n"))
   }
 }
