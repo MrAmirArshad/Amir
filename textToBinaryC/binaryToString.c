@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+
 char *inputString(FILE* fr, size_t size){
-//The size is extended by the input with the value of the provisional
+
     char *str;
     int ch;
     size_t len = 0;
-    str = realloc(NULL, sizeof(char)*size);//size is start size
+    str = realloc(NULL, sizeof(char)*size);
     if(!str)return str;
     while(EOF!=(ch=fgetc(fr)) && ch != '\n'){
         str[len++]=ch;
@@ -20,25 +21,25 @@ char *inputString(FILE* fr, size_t size){
     return realloc(str, sizeof(char)*len);
 }
 
-int CopyBin2Text(char* rafname, char* txtname)      // changed return value
+int copyBinToText(char* rafname, char* txtname)      
 {
     FILE *fraf, *ftxt;
 char *c;    
 c = inputString(fraf, 10);
     if ((fraf = fopen(rafname,"rb")) == NULL)
-        return 0;                                   // failure
+        return 0;                                   
 
-    if ((ftxt = fopen(txtname,"wt")) == NULL) {     // changed mode
+    if ((ftxt = fopen(txtname,"wt")) == NULL) {     
         fclose(fraf);
-        return 0;                                   // failure
+        return 0;                                  
     }
     fprintf(ftxt, "---------------------------------------\n");
-    while(fread(&fraf, strlen(c), 1, ftxt) == 1)       // use return value to loop
+    while(fread(&fraf, strlen(c), 1, ftxt) == 1)       
         fprintf(ftxt, "%s\n",NULL);
     fclose(ftxt);
 
     fclose(fraf);
-    return 1;                                       // success
+    return 1;                                       
 }
 
 int makefile(char* rafname)
@@ -46,18 +47,18 @@ int makefile(char* rafname)
     FILE *fraf, *ftxt;
     
     if ((fraf = fopen(rafname,"wb")) == NULL)
-        return 0;                                   // failure
+        return 0;                                  
 
     fclose(fraf);
-    return 1;                                       // success
+    return 1;                                     
 }
 
 int main(void)
 {
-    if (makefile("abc.bin") == 0)
+    if (makefile("string.bin") == 0)
         printf("Failure\n");
     else {
-        if (CopyBin2Text("abc.bin", "cba.txt") == 0)
+        if (CopyBin2Text("string.bin", "reversed.txt") == 0)
             printf("Failure\n");
         else
             printf("Success\n");
