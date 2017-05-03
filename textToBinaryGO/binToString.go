@@ -24,7 +24,6 @@ func binary(c []byte) string {
           return int(result)
   }
 
-
 func main() {
     b, err := ioutil.ReadFile("string.bin") 
     if err != nil {
