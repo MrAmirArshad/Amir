@@ -5,11 +5,11 @@ import java.text.*;
 public class stringToBin{
 	public static void main(String args[]) throws IOException
 	{
-      		BufferedReader infile = new BufferedReader(new FileReader("textStr.txt"));
+      		BufferedReader infile = new BufferedReader(new FileReader("txtStr.txt"));
           
-      		PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter("binText.bin")));
+      		PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter("binTxt.bin")));
 
-		Scanner scanner = new Scanner( new File("textStr.txt") );
+		Scanner scanner = new Scanner( new File("txtStr.txt") );
 		String text = scanner.useDelimiter("\\A").next();
 
       		byte[] bytes = text.getBytes();
@@ -26,7 +26,7 @@ public class stringToBin{
 		}
 		output.println(binary);
 		output.close();
-		System.out.println("String to binary. Done.");
+		System.out.println("String to Binary. Success.");
 		scanner.close();
 	}
 }
