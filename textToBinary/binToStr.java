@@ -5,9 +5,9 @@ import java.text.*;
 public class binToStr{
    	public static void main(String args[]) throws Exception
 	{
-      		File bin = new File("binText.bin");
+      		File bin = new File("binTxt.bin");
 
-      		PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter("textStr2.txt")));
+      		PrintWriter output = new PrintWriter(new BufferedWriter(new FileWriter("txtStr2.txt")));
 	
 		Scanner scanner = new Scanner(bin);
 		String words = scanner.nextLine();
@@ -17,11 +17,11 @@ public class binToStr{
 		for(int i = 0; i < code.length; i++)
 			str += (char)Integer.parseInt(code[i],2);
 		
-		System.out.println("Binary to String. Done.");
+		System.out.println("Binary to String. Success.");
 		String reverse = new StringBuffer(str).reverse().toString();
 		
 		output.println(reverse);
-		System.out.println("String reversed. Done.");
+		System.out.println("String Reversed. Success.");
 		scanner.close();
 		output.close();
 	}
